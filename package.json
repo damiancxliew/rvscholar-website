@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-player": "^2.15.1",
+    "vue-lite-youtube-embed": "^1.2.1"
+  }
+}
