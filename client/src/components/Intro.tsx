@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const { Title } = Typography;
 const { Paragraph } = Typography;
 
-const style = {fontSize: 18}
+const style = { fontSize: 18 };
 
 const Intro: React.FC = () => {
   let videosrc = "https://youtu.be/fEgK_66Iwgk";
@@ -88,15 +88,15 @@ const Intro: React.FC = () => {
       <Title level={5}>
         To know more about RV and its curriculum, please visit our{" "}
         <Link to={"https://www.rivervalleyhigh.moe.edu.sg/"}>
-          school website
+          school's website
         </Link>
         .
       </Title>
 
       <Title level={5}>
-        Please visit our school's{" "}
+        Please visit our{" "}
         <Link to={"https://www.youtube.com/@ReViewAtRVHS"}>
-          youtube channel
+          school's youtube channel
         </Link>{" "}
         too!
       </Title>

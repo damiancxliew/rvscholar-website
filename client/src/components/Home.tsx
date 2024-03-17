@@ -28,7 +28,7 @@ const items: MenuProps["items"] = [
   { key: "intro", label: <Link to={"/"}>Home</Link> },
   { key: "experience", label: <Link to={"/experience"}>Experience</Link> },
   { key: "hostel", label: <Link to={"/hostel"}>Hostel</Link> },
-  { key: "life", label: <Link to={"/life"}>Life</Link> },
+  // { key: "life", label: <Link to={"/life"}>Life</Link> },
 ];
 const Home: React.FC = () => {
   const {
@@ -52,7 +52,7 @@ const Home: React.FC = () => {
         </Space>
       </Header>
       {/* <Divider style={{ background:"#ggg", padding: "0" }}></Divider> */}
-      <Content style={{ padding: "0 48px", backgroundColor: "#fff"}}>
+      <Content style={{ padding: "0 48px", backgroundColor: "#fff" }}>
         <div
           style={{
             background: colorBgContainer,
@@ -61,13 +61,12 @@ const Home: React.FC = () => {
             padding: 0,
             borderRadius: borderRadiusLG,
           }}
-        >
-        </div>
+        ></div>
 
         <Outlet></Outlet>
       </Content>
-      <Footer style={{ textAlign: "center", backgroundColor:"#fff"}}>
-        Testing ©{new Date().getFullYear()} Created by dlcx
+      <Footer style={{ textAlign: "center", backgroundColor: "#fff" }}>
+        RV Scholars ©{new Date().getFullYear()} Created by dlcx
       </Footer>
     </Layout>
   );
