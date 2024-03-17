@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 const { Title } = Typography;
 const { Paragraph } = Typography;
 
+const style = {fontSize: 18}
+
 const Intro: React.FC = () => {
   let videosrc = "https://youtu.be/fEgK_66Iwgk";
   return (
@@ -13,7 +15,7 @@ const Intro: React.FC = () => {
       <Divider style={{ background: "#000" }}></Divider>
 
       <Title>About</Title>
-      <Paragraph>
+      <Paragraph style={style}>
         Founded in 1956, <b>River Valley High School (RVHS)</b> is a
         forward-looking educational institution steeped in history and eastern
         culture. Since it was founded more than 67 years ago, RVHS has nurtured
@@ -21,7 +23,7 @@ const Intro: React.FC = () => {
         significantly to the nation in various areas as leaders of distinction
         for Singapore.
       </Paragraph>
-      <Paragraph>
+      <Paragraph style={style}>
         In 1979, owing to her strong Chinese roots, RVHS was designated as a
         Special Assistance Plan (SAP) School to develop all students to be
         bicultural and effectively bilingual in English and Chinese. In 1994,
@@ -31,7 +33,7 @@ const Intro: React.FC = () => {
         status as an S.I.A. school, where S stands for SAP, I stands for IP and
         A stands for Autonomous.
       </Paragraph>
-      <Paragraph>
+      <Paragraph style={style}>
         The school is committed to providing our students with a holistic
         education and we develop each child to his/her fullest in the
         intellectual, social, moral, emotional, physical and aesthetic domains.
@@ -40,7 +42,7 @@ const Intro: React.FC = () => {
         Leadership-Character Development Curriculum (LCDC) and the Civic
         Literacy and Global Awareness Development Curriculum (CGDC).
       </Paragraph>
-      <Paragraph>
+      <Paragraph style={style}>
         <ul>
           <li>
             <b>CIDC</b> nurtures good habits of mind, critical thinking skills

@@ -24,7 +24,9 @@ const Hostel: React.FC = () => (
       and the opportunity to study together.{" "}
     </Paragraph>
     <div>
-      <Title className="carousel" level={3}>Memories we share</Title>
+      <Title className="carousel" level={3}>
+        Memories we share
+      </Title>
       <Carousel autoplay style={{ padding: "20px" }}>
         <div>
           <h3 style={contentStyle}>
