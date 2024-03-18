@@ -16,6 +16,7 @@ function Experience() {
   useEffect(() => {
     async function fetchDecks() {
       const newDecks = await getDecks();
+      console.log("dd", newDecks);
       setDecks(newDecks);
     }
     fetchDecks();
@@ -30,7 +31,7 @@ function Experience() {
         {decks.map((deck) => (
           <div key={deck._id}>
             <h1>{deck.title}</h1>
-            <Divider style={{backgroundColor:"#fff"}}></Divider>
+            <Divider style={{ backgroundColor: "#fff" }}></Divider>
             <Row gutter={[16, 24]}>
               {deck.cards.map((card, index) => (
                 <React.Fragment key={index}>
@@ -49,10 +50,10 @@ function Experience() {
                       <Title font-family="Helvetica Neue" level={3}>
                         {card.name}
                       </Title>
-                      <Title level={4}>
-                        Course/Interest: {card.interest}
-                      </Title>
-                      <Paragraph style={{fontSize:18}}>{card.experience}</Paragraph>
+                      <Title level={4}>Course/Interest: {card.interest}</Title>
+                      <Paragraph style={{ fontSize: 18 }}>
+                        {card.experience}
+                      </Paragraph>
                     </div>
                   </Col>
                 </React.Fragment>

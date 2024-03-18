@@ -1,6 +1,7 @@
 import { config } from "dotenv";
 // import Deck from "./models/Deck";
 config();
+import http from "http";
 
 import express from "express";
 import mongoose from "mongoose";
@@ -15,6 +16,7 @@ import { deleteCardOnDeckController } from "./controllers/deleteCardOnDeckContro
 const PORT = 5000;
 
 const app = express();
+const server = new http.Server(app);
 
 app.use(
   cors({

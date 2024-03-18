@@ -14,7 +14,7 @@ export async function createCard(deckId: string, values: any): Promise<any> {
   //   headers: {
   //     "Content-Type": "multipart/form-data",
   //   },
-  // });  
+  // });
   console.log(JSON.stringify(response));
   return JSON.stringify(response);
 }
