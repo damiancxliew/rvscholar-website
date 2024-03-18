@@ -31,58 +31,74 @@ const Hostel: React.FC = () => (
       <Title className="carousel" level={3}>
         Memories we share
       </Title>
-      <Carousel autoplay style={{ padding: "20px", flex:"auto"}}>
-        <div>
-          <h3 style={contentStyle}>
-            <Image
-              src={getImg("pic1.jpg")}
-              alt={`./images/pic1`}
-              height={"100%"}
-              width={"60%"}
-            />
-          </h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>
-            <Image
-              src={getImg("pic2.jpg")}
-              alt={`./images/pic2`}
-              height={"100%"}
-              width={"60%"}
-            />
-          </h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>
-            <Image
-              src={getImg("pic3.jpg")}
-              alt={`./images/pic3`}
-              height={"100%"}
-              width={"60%"}
-            />
-          </h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>
-            <Image
-              src={getImg("pic4.jpg")}
-              alt={`./images/pic4`}
-              height={"100%"}
-              width={"60%"}
-            />
-          </h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>
-            <Image
-              src={getImg("bbq_group_pic.jpg")}
-              alt={`./images/bbq_group_pic`}
-              height={"100%"}
-              width={"60%"}
-            />
-          </h3>
-        </div>
-      </Carousel>
+      <div
+        style={{
+          background: "#fff",
+          alignItems: "center",
+          alignTracks: "center",
+          alignSelf: "center",
+        }}
+      >
+        <Carousel
+          autoplay
+          style={{
+            padding: "1%",
+            maxWidth: "100%",
+            maxHeight: "100%",
+          }}
+        >
+          <div>
+            <h3 style={contentStyle}>
+              <Image
+                src={getImg("pic1.jpg")}
+                alt={`./images/pic1`}
+                // height={"100%"}
+                // width={"60%"}
+              />
+            </h3>
+          </div>
+          <div>
+            <h3 style={contentStyle}>
+              <Image
+                src={getImg("pic2.jpg")}
+                alt={`./images/pic2`}
+                // height={"100%"}
+                // width={"60%"}
+              />
+            </h3>
+          </div>
+          <div>
+            <h3 style={contentStyle}>
+              <Image
+                src={getImg("pic3.jpg")}
+                alt={`./images/pic3`}
+                // height={"100%"}
+                // width={"60%"}
+              />
+            </h3>
+          </div>
+          <div>
+            <h3 style={contentStyle}>
+              <Image
+                src={getImg("pic4.jpg")}
+                alt={`./images/pic4`}
+                // height={"100%"}
+                // width={"60%"}
+              />
+            </h3>
+          </div>
+          <div>
+            <h3 style={contentStyle}>
+              <Image
+                src={getImg("bbq_group_pic.jpg")}
+                alt={`./images/bbq_group_pic`}
+                height={"100%"}
+                width={"60%"}
+              />
+            </h3>
+          </div>
+        </Carousel>
+      </div>
     </div>
     <div>
       <Title className="carousel" level={3}>
