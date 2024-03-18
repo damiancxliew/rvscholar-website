@@ -72,8 +72,8 @@ const Intro: React.FC = () => {
       <div className="react-player">
         <ReactPlayer
           // className="player"
-          // width="500px%"
-          // height="400px"
+          // height="100%"
+          // width="30%"
           url={videosrc}
           controls={true}
           // light is usefull incase of dark mode

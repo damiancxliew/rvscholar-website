@@ -31,7 +31,7 @@ const Hostel: React.FC = () => (
       <Title className="carousel" level={3}>
         Memories we share
       </Title>
-      <Carousel autoplay style={{ padding: "20px" }}>
+      <Carousel autoplay style={{ padding: "20px", flex:"auto"}}>
         <div>
           <h3 style={contentStyle}>
             <Image

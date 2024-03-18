@@ -40,7 +40,7 @@ const Home: React.FC = () => {
       <Header style={headerStyle}>
         <div className="demo-logo" />
         <Space>
-          <Image preview={false} width={100} src={myimage} />
+          <Image preview={false} width={"100px"} src={myimage} />
           <Menu
             theme="light"
             mode="horizontal"
@@ -58,7 +58,7 @@ const Home: React.FC = () => {
             background: colorBgContainer,
             backgroundColor: "#fff",
             minHeight: 0,
-            padding: 0,
+            padding: 8,
             borderRadius: borderRadiusLG,
           }}
         ></div>
