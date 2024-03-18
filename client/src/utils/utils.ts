@@ -20,6 +20,7 @@ import img19 from "../images/1710697760278sheila_rvwebsite.jpg";
 import img20 from "../images/1710698160773clarice_rvwebsite.png";
 import img21 from "../images/1710698290445ccl_solo_pic.jpg";
 import img22 from "../images/1710698522528pau_solo.jpg";
+import img23 from "../images/1710727550792nicole.jpg";
 
 const imageMap: any = {
   "1710682066955Rayner.jpg": img1,
@@ -44,6 +45,7 @@ const imageMap: any = {
   "1710698160773clarice_rvwebsite.png": img20,
   "1710698290445ccl_solo_pic.jpg": img21,
   "1710698522528pau_solo.jpg": img22,
+  "1710727550792nicole.jpg": img23,
 };
 export const getImg = (imageName: string) => {
   return imageMap[imageName];

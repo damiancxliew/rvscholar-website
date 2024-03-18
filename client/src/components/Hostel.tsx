@@ -52,8 +52,8 @@ const Hostel: React.FC = () => (
               <Image
                 src={getImg("pic1.jpg")}
                 alt={`./images/pic1`}
-                // height={"100%"}
-                // width={"60%"}
+                height={"100%"}
+                width={"60%"}
               />
             </h3>
           </div>
