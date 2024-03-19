@@ -45,7 +45,7 @@ function Experience() {
                       />
                     </div>
                   </Col>
-                  <Col className="gutter-row" span={12}>
+                  <Col className="gutter-row" span={14}>
                     <div>
                       <Title font-family="Helvetica Neue" level={3}>
                         {card.name}

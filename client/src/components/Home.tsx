@@ -40,7 +40,9 @@ const Home: React.FC = () => {
       <Header style={headerStyle}>
         <div className="demo-logo" />
         <Space>
-          <Image preview={false} width={"100px"} src={myimage} />
+          <Link to={"/"}>
+            <Image preview={false} width={"100px"} src={myimage} />
+          </Link>
           <Menu
             theme="light"
             mode="horizontal"
