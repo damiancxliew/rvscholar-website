@@ -68,7 +68,7 @@ const Home: React.FC = () => {
         <Outlet></Outlet>
       </Content>
       <Footer style={{ textAlign: "center", backgroundColor: "#fff" }}>
-        RV Scholars ©{new Date().getFullYear()} Created by dlcx
+        RV Scholars ©{new Date().getFullYear()} Created by DLCX and RayLight
       </Footer>
     </Layout>
   );
