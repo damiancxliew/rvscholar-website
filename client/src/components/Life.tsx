@@ -1,3 +1,4 @@
+// change to firebase here
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { createDeck } from "../api/createDeck";
@@ -7,24 +8,25 @@ import "../App.css";
 import { Button, Divider, Input } from "antd";
 
 function Life() {
-  const [decks, setDecks] = useState<TDeck[]>([]);
+  const [decks, setDecks] = useState<any>([]);
   const [title, setTitle] = useState("");
+  const notInArray = ['hostel']   // type name of deck that is not to be included in accessing hostel deck
 
   async function handleCreateDeck(e: React.FormEvent) {
     e.preventDefault();
-    const deck = await createDeck(title);
-    setDecks([...decks, deck]);
+    await createDeck(title);
+    setDecks(await getDecks(notInArray));
     setTitle("");
   }
 
   async function handleDeleteDeck(deckId: string) {
     await deleteDeck(deckId);
-    setDecks(decks.filter((deck) => deck._id !== deckId));
+    setDecks(await getDecks(notInArray));
   }
 
   useEffect(() => {
     async function fetchDecks() {
-      const newDecks = await getDecks();
+      const newDecks = await getDecks(notInArray);
       setDecks(newDecks);
     }
     fetchDecks();
@@ -38,11 +40,11 @@ function Life() {
         <h1>Words from seniors</h1>
 
         <ul className="decks">
-          {decks.map((deck) => (
-            <li key={deck._id}>
-              <Button onClick={() => handleDeleteDeck(deck._id)}>X</Button>
+          {decks.map((deck:any) => (
+            <li key={deck.id}>
+              <Button onClick={() => handleDeleteDeck(deck.id)}>X</Button>
 
-              <Link to={`${deck._id}`}>{deck.title}</Link>
+              <Link to={`${deck.id}`}>{deck.id}</Link>
             </li>
           ))}
         </ul>

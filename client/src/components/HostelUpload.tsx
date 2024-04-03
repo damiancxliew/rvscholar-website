@@ -57,12 +57,10 @@ export default function Deck() {
   const onFinishFailed: FormProps<TCard>["onFinishFailed"] = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-  const [deck, setDeck] = useState<any>({});
-  const [cards, setCards] = useState<any>([]);
+  
   const [executingFirebase, setExecutingFirebase] = useState(false)
   // const [text, setText] = useState("");
   const [cardForm] = useForm();
-  const { deckId } = useParams();
   const [value, setValue] = useState("");
 
   async function handleCreateDeck() {
@@ -78,17 +76,6 @@ export default function Deck() {
       experience: experience,
       image: image.originFileObj
     }
-
-    // console.log(cardId)
-    if (!deckId) return;
-    createCard(deckId, formData)
-    .then(async () => {
-      getDeck(deckId)
-      .then( (newDeck) => {
-        setDeck(newDeck)
-        setExecutingFirebase(false)
-      })
-    })
   }
 
   const [previewOpen, setPreviewOpen] = useState(false);
@@ -122,44 +109,14 @@ export default function Deck() {
     </button>
   );
 
-  async function handleDeleteCard(cardId:any) {
-    setExecutingFirebase(true)
-    // console.log(cardId)
-    if (!deckId) return;
-    await deleteCard(deckId, cardId)
-    .then(async () => {
-      setDeck(await getDeck(deckId))
-      setExecutingFirebase(false)
-    })
-  }
-
   useEffect(() => {
-    async function fetchDeck() {
-      if (!deckId) return;
-
-      await getDeck(deckId)
-      .then((newDeck:any) => {
-        setCards(newDeck.data)
-        setDeck(newDeck)
-      })
-    }
-    fetchDeck();
-  }, [executingFirebase]);
+    
+  }, []);
 
   return (
     <div className="Deck">
       <Divider style={{ background: "#000" }}></Divider>
-      <h1>{deck?.id}</h1>
-      <ul className="cards">
-        {Object.entries(cards).map((card:any, index:any) => { 
-          return(
-          <li key={index}>
-            <Button onClick={() => handleDeleteCard(card[0])}>X</Button>
-            {card[1].name}
-            <Image src={card[1].imageLink} alt={`Image of ${card[1].name}`} width={100} />
-          </li>
-        )})}
-      </ul>
+      <h1>Hostel Experience Uploading</h1>
       <div className="form_alignment">
         <Form
           form={cardForm}

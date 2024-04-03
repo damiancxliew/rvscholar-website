@@ -11,6 +11,7 @@ import Intro from "./components/Intro";
 import Deck from "./components/Deck";
 import Experience from "./components/Experience";
 import Senior from "./components/Senior";
+import HostelUpload from "./components/HostelUpload";
 
 function App() {
   const [alertVisible, setAlertVisibility] = useState(false);
@@ -31,6 +32,7 @@ function App() {
         { path: "/experience", element: <Experience />},
         { path: "/experience/:deckId", element: <Senior />},
         { path: "/hostel", element: <Hostel /> },
+        { path: "/hostelUpload", element: <HostelUpload/>}
       ],
     },
   ];

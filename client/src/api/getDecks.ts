@@ -1,4 +1,5 @@
-import { API_URL } from "./config";
+import { doc, updateDoc, getFirestore, query, collection, getDocs, orderBy, FieldPath, where } from "firebase/firestore";
+import { firebaseApp } from "../../../client/src/api/firebase-config";
 
 export type TCard = {
   name: string;
@@ -14,7 +15,24 @@ export type TDeck = {
   _id: string;
 };
 
-export async function getDecks(): Promise<TDeck[]> {
-  const response = await fetch(`${API_URL}/life`);
-  return response.json();
+export async function getDecks(notInArray:string[]=[], inArray:string[]=[]): Promise<TDeck[]> {
+
+  const db = getFirestore(firebaseApp);
+
+  // obtain all the available decks
+  const res:any[] = []
+  const q = query(collection(db, "decks"), where("__name__", "not-in", notInArray), where("__name__", "in", inArray))
+  const querySnapshot = await getDocs(q)
+  querySnapshot.forEach((doc:any) => {
+      // doc.data() is never undefined for query doc snapshots
+      res.push({
+        id: doc.id, 
+        data: doc.data()
+      })
+      // console.log(doc.data())
+  })
+  return res
+
+  // const response = await fetch(`${API_URL}/life`);
+  // return response.json();
 }

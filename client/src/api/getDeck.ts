@@ -1,7 +1,15 @@
-import { API_URL } from "./config";
-import { TDeck } from "./getDecks";
+import { getDecks } from "./getDecks";
 
-export async function getDeck(deckId: string): Promise<TDeck> {
-  const response = await fetch(`${API_URL}/life/${deckId}`);
-  return response.json();
+export async function getDeck(deckId: string) {
+
+  const decks:any[] = await getDecks()
+
+  for (let deck of decks) {
+    if (deck.id == deckId) {
+      return deck
+    }
+  }
+
+  // const response = await fetch(`${API_URL}/life/${deckId}`);
+  // return response.json();
 }
