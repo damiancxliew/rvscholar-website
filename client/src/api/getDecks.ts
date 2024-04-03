@@ -15,13 +15,13 @@ export type TDeck = {
   _id: string;
 };
 
-export async function getDecks(notInArray:string[]=[], inArray:string[]=[]): Promise<TDeck[]> {
+export async function getDecks(notInArray:string[]=[]): Promise<TDeck[]> {
 
   const db = getFirestore(firebaseApp);
 
   // obtain all the available decks
   const res:any[] = []
-  const q = query(collection(db, "decks"), where("__name__", "not-in", notInArray), where("__name__", "in", inArray))
+  const q = query(collection(db, "decks"), where("__name__", "not-in", notInArray))
   const querySnapshot = await getDocs(q)
   querySnapshot.forEach((doc:any) => {
       // doc.data() is never undefined for query doc snapshots
