@@ -46,7 +46,7 @@ export async function createCard(deckId: string, values: any): Promise<any> {
       switch (error.code) {
         case 'storage/unauthorized':
           // User doesn't have permission to access the object
-          alert("You do not have access to the upload. Please contact the developer at aibivivacity@gmail.com")
+          alert("You do not have access to the upload. Please contact the developer at rvscholars.website@gmail.com")
           break;
         case 'storage/canceled':
           // User canceled the upload
