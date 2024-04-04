@@ -18,8 +18,6 @@ function Experience() {
   useEffect(() => {
     async function fetchDecks() {
       const newDecks = await getDecks(notInArray);
-      // console.log("dd", newDecks);
-      console.log("Test 2", newDecks)
       newDecks.sort((a:any, b:any) => {
         return (a.id - b.id)
       });
