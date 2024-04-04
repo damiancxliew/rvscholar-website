@@ -38,12 +38,12 @@ const beforeUpload = (file: FileType) => {
   if (!isJpgOrPng) {
     message.error("You can only upload JPG/PNG file!");
   }
-  console.log(file.size / 1024 / 1024);
+  // console.log(file.size / 1024 / 1024);
   const isLt2M = file.size / 1024 / 1024 < 2;
   if (!isLt2M) {
     message.error("Image must smaller than 2MB!");
   }
-  console.log(isJpgOrPng, isLt2M);
+  // console.log(isJpgOrPng, isLt2M);
   return isJpgOrPng && isLt2M;
   // return isJpgOrPng;
 };
@@ -122,11 +122,11 @@ export default function Deck() {
     </button>
   );
 
-  async function handleDeleteCard(cardId:any) {
+  async function handleDeleteCard(cardId:any, cardName:string) {
     setExecutingFirebase(true)
     // console.log(cardId)
     if (!deckId) return;
-    await deleteCard(deckId, cardId)
+    await deleteCard(deckId, cardId, cardName)
     .then(async () => {
       setDeck(await getDeck(deckId))
       setExecutingFirebase(false)
@@ -154,7 +154,7 @@ export default function Deck() {
         {Object.entries(cards).map((card:any, index:any) => { 
           return(
           <li key={index}>
-            <Button onClick={() => handleDeleteCard(card[0])}>X</Button>
+            <Button onClick={() => handleDeleteCard(card[0], card[1].name)}>X</Button>
             {card[1].name}
             <Image src={card[1].imageLink} alt={`Image of ${card[1].name}`} width={100} />
           </li>

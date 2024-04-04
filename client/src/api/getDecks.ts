@@ -15,7 +15,7 @@ export type TDeck = {
   _id: string;
 };
 
-export async function getDecks(notInArray:string[]=[]): Promise<TDeck[]> {
+export async function getDecks(notInArray:string[]=['placeholder']): Promise<TDeck[]> {
 
   const db = getFirestore(firebaseApp);
 
