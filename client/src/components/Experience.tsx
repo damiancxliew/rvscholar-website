@@ -19,12 +19,20 @@ function Experience() {
     async function fetchDecks() {
       const newDecks = await getDecks(notInArray);
       // console.log("dd", newDecks);
+      console.log("Test 2", newDecks)
+      newDecks.sort((a:any, b:any) => {
+        return (a.id - b.id)
+      });
       setDecks(newDecks);
     }
     fetchDecks();
   }, []);
 
   // console.log("initial decks", decks[1]?.data)
+  const date = new Date();
+  const currentYear = date.getFullYear();
+  let currentPrinted = false;
+  
 
   return (
     <div className="container">
@@ -34,7 +42,13 @@ function Experience() {
 
         {decks ? decks.map((deck:any) => (
           <div key={deck.id}>
-            <h1>{deck.id}</h1>
+          {deck.id >= currentYear && !currentPrinted ? (
+              <>
+                  <h1>Current</h1>
+                  {currentPrinted = true} {/* Update the flag if "Current" is printed */}
+              </>
+          ) : null}
+          {deck.id >= currentYear && currentPrinted ? null : <h1>Graduated in {deck.id}</h1>}
             <Divider style={{ backgroundColor: "#fff" }}></Divider>
             <Row gutter={[16, 24]}>
               {Object.entries(deck.data).map((card:any, index:any) => (
