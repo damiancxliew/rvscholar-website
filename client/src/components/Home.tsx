@@ -49,7 +49,7 @@ const Home: React.FC = () => {
             defaultSelectedKeys={[]}
             disabledOverflow
             items={items}
-            style={{ flex: "auto" }}
+            style={{ flex: "auto", fontSize:"2.2vw", }}
           />
         </Space>
       </Header>

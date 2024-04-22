@@ -1,8 +1,8 @@
 import { useState } from "react";
 import {
-  RouteObject,
-  RouterProvider,
-  createBrowserRouter,
+    RouteObject,
+    RouterProvider,
+    createBrowserRouter,
 } from "react-router-dom";
 import Home from "./components/Home";
 import Life from "./components/Life";
@@ -14,30 +14,30 @@ import Senior from "./components/Senior";
 import HostelUpload from "./components/HostelUpload";
 
 function App() {
-  const [alertVisible, setAlertVisibility] = useState(false);
-  let items = ["New York", "San Franciso", "Tokyo", "London", "Paris"];
+    const [alertVisible, setAlertVisibility] = useState(false);
+    // let items = ["New York", "San Franciso", "Tokyo", "London", "Paris"];
 
-  const handleSelectItem = (item: string) => {
-    console.log(item);
-  };
+    // const handleSelectItem = (item: string) => {
+    //   console.log(item);
+    // };
 
-  const routes: RouteObject[] = [
-    {
-      path: "/",
-      element: <Home />,
-      children: [
-        { path: "/", element: <Intro /> },
-        { path: "/life", element: <Life /> },
-        { path: "/life/:deckId", element: <Deck />},
-        { path: "/experience", element: <Experience />},
-        { path: "/experience/:deckId", element: <Senior />},
-        { path: "/hostel", element: <Hostel /> },
-        { path: "/hostelUpload", element: <HostelUpload/>}
-      ],
-    },
-  ];
+    const routes: RouteObject[] = [
+        {
+            path: "/",
+            element: <Home />,
+            children: [
+                { path: "/", element: <Intro /> },
+                { path: "/life", element: <Life /> },
+                { path: "/life/:deckId", element: <Deck /> },
+                { path: "/experience", element: <Experience /> },
+                { path: "/experience/:deckId", element: <Senior /> },
+                { path: "/hostel", element: <Hostel /> },
+                { path: "/hostelUpload", element: <HostelUpload /> },
+            ],
+        },
+    ];
 
-  const router = createBrowserRouter(routes);
-  return <RouterProvider router={router} />;
+    const router = createBrowserRouter(routes);
+    return <RouterProvider router={router} />;
 }
 export default App;
