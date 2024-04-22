@@ -14,6 +14,7 @@ import Paragraph from "antd/es/typography/Paragraph";
 function Experience() {
     const [decks, setDecks] = useState<any>([]);
     const notInArray = ["hostel"]; // type name of deck that is not to be included in accessing hostel deck
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Initially check if screen size is mobile
 
     useEffect(() => {
         async function fetchDecks() {
@@ -37,7 +38,7 @@ function Experience() {
                 <Divider style={{ background: "#000" }}></Divider>
                 <h1
                     style={{
-                        fontSize: "2.5vw",
+                        fontSize: "2.0rem",
                     }}
                 >
                     Words from Seniors
@@ -50,7 +51,7 @@ function Experience() {
                                   <>
                                       <h1
                                           style={{
-                                              fontSize: "2.2vw",
+                                              fontSize: "1.75vw",
                                           }}
                                       >
                                           Current
@@ -63,7 +64,7 @@ function Experience() {
                               currentPrinted ? null : (
                                   <h1
                                       style={{
-                                          fontSize: "2.2vw",
+                                          fontSize: "1.75rem",
                                       }}
                                   >
                                       Graduated in {deck.id}
@@ -72,11 +73,83 @@ function Experience() {
                               <Divider
                                   style={{ backgroundColor: "#fff" }}
                               ></Divider>
-                              <Row gutter={[16, 24]}>
-                                  {Object.entries(deck.data).map(
-                                      (card: any, index: any) => (
-                                          <React.Fragment key={index}>
-                                              <Flex wrap="wrap" gap="small">
+                              {Object.entries(deck.data).map(
+                                  (card: any, index: any) => (
+                                      <React.Fragment key={index}>
+                                          {isMobile ? (
+                                              // If mobile screen size
+                                              <>
+                                                  <Row gutter={[16, 24]}>
+                                                      <Col span={24}>
+                                                          <div
+                                                              style={{
+                                                                  background:
+                                                                      "#fff",
+                                                                  padding:
+                                                                      "12px 0",
+                                                                  textAlign:
+                                                                      "center",
+                                                              }}
+                                                          >
+                                                              <Image
+                                                                  src={
+                                                                      card[1]
+                                                                          .imageLink
+                                                                  }
+                                                                  alt={`Image of ${card[1].name}`}
+                                                                  style={{
+                                                                      height: "auto",
+                                                                      width: "90%",
+                                                                  }}
+                                                              />
+                                                          </div>
+                                                      </Col>
+                                                  </Row>
+                                                  <Row gutter={[16, 24]}>
+                                                      <Col span={24}>
+                                                          <div>
+                                                              <Title
+                                                                  level={3}
+                                                                  style={{
+                                                                      fontSize:
+                                                                          "1.0rem",
+                                                                      textAlign:
+                                                                          "center",
+                                                                  }}
+                                                              >
+                                                                  {card[1].name}
+                                                              </Title>
+                                                              <Title
+                                                                  level={4}
+                                                                  style={{
+                                                                      fontSize:
+                                                                          "0.7rem",
+                                                                  }}
+                                                              >
+                                                                  Course/Interest:{" "}
+                                                                  {
+                                                                      card[1]
+                                                                          .interests
+                                                                  }
+                                                              </Title>
+                                                              <Paragraph
+                                                                  style={{
+                                                                      fontSize:
+                                                                          "0.6rem",
+                                                                  }}
+                                                              >
+                                                                  {
+                                                                      card[1]
+                                                                          .experience
+                                                                  }
+                                                              </Paragraph>
+                                                          </div>
+                                                      </Col>
+                                                  </Row>
+                                              </>
+                                          ) : (
+                                              // If laptop screen size
+                                              <Row gutter={[16, 24]}>
                                                   <Col
                                                       className="gutter-row"
                                                       span={8}
@@ -86,6 +159,8 @@ function Experience() {
                                                               background:
                                                                   "#fff",
                                                               padding: "12px 0",
+                                                              textAlign:
+                                                                  "center",
                                                           }}
                                                       >
                                                           <Image
@@ -94,22 +169,23 @@ function Experience() {
                                                                       .imageLink
                                                               }
                                                               alt={`Image of ${card[1].name}`}
-                                                              height={"100%"}
-                                                              width={"90%"}
+                                                              style={{
+                                                                  height: "auto",
+                                                                  width: "90%",
+                                                              }}
                                                           />
                                                       </div>
                                                   </Col>
                                                   <Col
                                                       className="gutter-row"
-                                                      span={14}
+                                                      span={16}
                                                   >
                                                       <div>
                                                           <Title
-                                                              font-family="Helvetica Neue"
                                                               level={3}
                                                               style={{
                                                                   fontSize:
-                                                                      "1.8vw",
+                                                                      "1.75vw",
                                                               }}
                                                           >
                                                               {card[1].name}
@@ -118,7 +194,7 @@ function Experience() {
                                                               level={4}
                                                               style={{
                                                                   fontSize:
-                                                                      "1.3vw",
+                                                                      "1.2vw",
                                                               }}
                                                           >
                                                               Course/Interest:{" "}
@@ -140,11 +216,11 @@ function Experience() {
                                                           </Paragraph>
                                                       </div>
                                                   </Col>
-                                              </Flex>
-                                          </React.Fragment>
-                                      )
-                                  )}
-                              </Row>
+                                              </Row>
+                                          )}
+                                      </React.Fragment>
+                                  )
+                              )}
                           </div>
                       ))
                     : null}
