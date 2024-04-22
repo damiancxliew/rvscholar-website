@@ -51,7 +51,7 @@ function Experience() {
                                   <>
                                       <h1
                                           style={{
-                                              fontSize: "1.75vw",
+                                              fontSize: "1.75rem",
                                           }}
                                       >
                                           Current
