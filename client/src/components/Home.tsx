@@ -77,7 +77,7 @@ const Home: React.FC = () => {
                 style={{
                     textAlign: "center",
                     backgroundColor: "#fff",
-                    fontSize: "60%",
+                    fontSize: "0.8rem",
                 }}
             >
                 RV Scholars ©{new Date().getFullYear()} Created by DLCX and
