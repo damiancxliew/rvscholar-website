@@ -123,7 +123,7 @@ function Experience() {
                                                                   level={4}
                                                                   style={{
                                                                       fontSize:
-                                                                          "0.7rem",
+                                                                          "0.8rem",
                                                                   }}
                                                               >
                                                                   Course/Interest:{" "}
@@ -135,7 +135,7 @@ function Experience() {
                                                               <Paragraph
                                                                   style={{
                                                                       fontSize:
-                                                                          "0.6rem",
+                                                                          "0.8rem",
                                                                   }}
                                                               >
                                                                   {
